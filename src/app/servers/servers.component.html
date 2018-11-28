@@ -1,0 +1,44 @@
+<!-- we can use disabled in order to disable the button -->
+<!--
+  After create allowNewServer in the ts file then we bind that in to the disable
+  we have to set the ! in order for it to be initialize to be true
+-->
+
+<!--
+  if you want to print something in your browser than use the string interpolation
+  but if you want to use the
+-->
+
+<!-- we bind onCreateServer() onto the click button -->
+<!-- $ event to fetch the event data on the ts file -->
+<label>Server Name</label>
+<!-- This input doesn's use the 2 way binding input -->
+<!--
+  <input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)" />
+-->
+
+<!-- to use ngModel we have to import FormsModule in the app.module.ts -->
+<input
+  type="text"
+  class="form-control"
+  (input)="onUpdateServerName($event)"
+  [(ngModel)]="serverName"
+/>
+<!-- <p>{{ serverName }}</p> -->
+<button
+  class="btn btn-primary"
+  [disabled]="!allowNewServer"
+  (click)="onCreateServer($event)"
+>
+  Add server
+</button>
+<!--
+  <p [innerText]="allowNewServer"></p>
+  <p>{{ serverCreationStatus }}</p>
+-->
+
+<p *ngIf="serverCreate">Server was created, server name is {{ serverName }}</p>
+<server></server> <server></server>
